@@ -400,7 +400,6 @@ contract World is Raffle, Ownable, ReentrancyGuard, TokenSender, TokenReceiver {
     function setVault(address _vault) public onlyOwner {
         vault = _vault;
     }
-
     // config world
 
     // Quest functions
