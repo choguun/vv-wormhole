@@ -11,8 +11,10 @@ import {Item} from "./Item.sol";
 import {Potion} from "./Potion.sol";
 import {Raffle} from "./Raffle.sol";
 import {CraftSystem} from "./CraftSystem.sol";
+import "wormhole-solidity-sdk/WormholeRelayerSDK.sol";
 
-contract World is Raffle, Ownable, ReentrancyGuard {
+contract World is Raffle, Ownable, ReentrancyGuard, TokenSender, TokenReceiver {
+    uint256 constant GAS_LIMIT = 250_000;
     // Data Structures
     enum QuestType {
         DAILY_CHECK_IN,
@@ -148,7 +150,7 @@ contract World is Raffle, Ownable, ReentrancyGuard {
     // Modifiers
 
     // constructor
-    constructor(address _initialOwner) Ownable(_initialOwner) {}
+    constructor(address _wormholeRelayer, address _tokenBridge, address _wormhole, address _initialOwner) Ownable(_initialOwner) TokenBase(_wormholeRelayer, _tokenBridge, _wormhole) {}
 
     // Player functions
     // TODO: call createPlayer after register token bound account
@@ -345,7 +347,7 @@ contract World is Raffle, Ownable, ReentrancyGuard {
         }
     }
 
-    function checkCurrentQuestStatus(uint256 _tokenId) public view returns (bool isCheckIn, bool isPlayMinigame, bool lastDoCraft) {
+    function checkCurrentQuestStatus() public view returns (bool isCheckIn, bool isPlayMinigame, bool lastDoCraft) {
         Player storage userCheckInInfo = players[_msgSender()];
         isCheckIn = false;
         isPlayMinigame = false;
