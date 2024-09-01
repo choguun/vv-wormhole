@@ -2,15 +2,42 @@
 pragma solidity 0.8.24;
 
 import {Ownable} from "openzeppelin-contracts/contracts/access/Ownable.sol";
-import {ERC721} from "openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
+import {ERC721, IERC721} from "openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
 import {ERC721Enumerable} from "openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "wormhole-solidity-sdk/WormholeRelayerSDK.sol";
 
-contract Profile is ERC721, ERC721Enumerable, Ownable {  
+contract Profile is ERC721, ERC721Enumerable, Ownable, TokenSender, TokenReceiver {  
     mapping(uint256 => string) public profileHandle; // tokenId => handle
     mapping(string => uint256) public handleToTokenId; // handle => tokenId
     // uint256 public price = 0.000001 ether; // 0.000001 ETH
 
-    constructor(address initialOwner) ERC721("Profile", "Profile") Ownable(initialOwner) {}
+    constructor(
+        address _wormholeRelayer,
+        address _tokenBridge,
+        address _wormhole,
+        address _initialOwner
+    )
+        ERC721("Profile", "Profile")
+        TokenBase(_wormholeRelayer, _tokenBridge, _wormhole)
+        Ownable(_initialOwner) {}
+
+    function receivePayloadAndTokens(
+        bytes memory payload,
+        TokenReceived[] memory receivedTokens,
+        bytes32, // sourceAddress
+        uint16,
+        bytes32 // deliveryHash
+    ) internal override onlyWormholeRelayer {
+        require(receivedTokens.length == 1, "Expected 1 token transfers");
+
+        (address recipient, uint256 tokenId) = abi.decode(payload, (address, uint256));
+
+        IERC721(receivedTokens[0].tokenAddress).transferFrom(
+            recipient,
+            address(this),
+            tokenId
+        );
+    }
     
     function registerHandle(string memory username) external payable {
         mint(_msgSender(), username);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            

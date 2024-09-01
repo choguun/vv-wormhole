@@ -27,19 +27,19 @@ contract Deploy is Script {
     World world = new World(wormholeRelayer, tokenBridge, wormhole, owner);
     console.log("World deployed at:", address(world));
 
-    Profile profile = new Profile(address(world));
+    Profile profile = new Profile(wormholeRelayer, tokenBridge, wormhole, address(world));
     console.log("Profile deployed at:", address(profile));
 
     CraftSystem craft = new CraftSystem(owner, address(world));
     console.log("CraftSystem deployed at:", address(craft));
 
-    Item item = new Item(address(owner), address(world), address(craft), "");
+    Item item = new Item(wormholeRelayer, tokenBridge, wormhole, owner, address(world), address(craft), "");
     console.log("Item deployed at:", address(item));
 
     Token token = new Token(wormholeRelayer, tokenBridge, wormhole, owner, address(profile), address(world));
     console.log("Token deployed at:", address(token));
 
-    Potion potion = new Potion(owner, address(world), "");
+    Potion potion = new Potion(wormholeRelayer, tokenBridge, wormhole, owner, address(world), "");
     console.log("Potion deployed at:", address(potion));
 
     ERC4626Vault vault = new ERC4626Vault(IERC20(address(token)));
