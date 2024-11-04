@@ -174,6 +174,12 @@ importers:
       '@babel/core':
         specifier: ^7.22.15
         version: 7.26.0
+      '@solana/spl-token':
+        specifier: ^0.4.9
+        version: 0.4.9(@solana/web3.js@1.95.4(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10))(bufferutil@4.0.8)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.6.3)(utf-8-validate@5.0.10)
+      '@solana/web3.js':
+        specifier: ^1.91.0
+        version: 1.95.4(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
       '@wormhole-foundation/wormhole-query-sdk':
         specifier: ^0.0.12
         version: 0.0.12(bufferutil@4.0.8)(encoding@0.1.13)(utf-8-validate@5.0.10)
@@ -181,8 +187,11 @@ importers:
         specifier: ^3.4.0
         version: 3.4.0
       axios:
-        specifier: ^1.5.0
+        specifier: ^1.6.7
         version: 1.7.7
+      bs58:
+        specifier: ^5.0.0
+        version: 5.0.0
       cors:
         specifier: ^2.8.5
         version: 2.8.5
@@ -10879,7 +10888,7 @@ snapshots:
       '@babel/traverse': 7.25.9
       '@babel/types': 7.26.0
       convert-source-map: 2.0.0
-      debug: 4.3.7
+      debug: 4.3.7(supports-color@5.5.0)
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -11710,7 +11719,7 @@ snapshots:
       '@babel/parser': 7.26.2
       '@babel/template': 7.25.9
       '@babel/types': 7.26.0
-      debug: 4.3.7
+      debug: 4.3.7(supports-color@5.5.0)
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -16218,7 +16227,7 @@ snapshots:
 
   '@types/ws@7.4.7':
     dependencies:
-      '@types/node': 12.20.55
+      '@types/node': 22.8.7
 
   '@types/ws@8.5.13':
     dependencies:
@@ -17678,7 +17687,7 @@ snapshots:
 
   axios@1.7.7:
     dependencies:
-      follow-redirects: 1.15.9(debug@4.3.7)
+      follow-redirects: 1.15.9
       form-data: 4.0.1
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
@@ -19378,9 +19387,9 @@ snapshots:
   execa@5.1.1:
     dependencies:
       cross-spawn: 7.0.3
-      get-stream: 6.0.0
+      get-stream: 6.0.1
       human-signals: 2.1.0
-      is-stream: 2.0.0
+      is-stream: 2.0.1
       merge-stream: 2.0.0
       npm-run-path: 4.0.1
       onetime: 5.1.2
@@ -19605,6 +19614,8 @@ snapshots:
   flow-enums-runtime@0.0.6: {}
 
   flow-parser@0.251.1: {}
+
+  follow-redirects@1.15.9: {}
 
   follow-redirects@1.15.9(debug@4.3.7):
     optionalDependencies:
