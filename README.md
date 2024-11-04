@@ -4,10 +4,8 @@
 
 #### Fully omni-chain MMORPG sandbox game, Player can stake LST token on EVM chain and mint in-game token in Solana and Sui chain that utlize speed and low cost of transactions.
 
-#### Solana Team
-- https://sol.voxelverses.xyz
-#### Sui Team
-- https://sui.voxelverses.xyz
+#### Install Guide
+pnpm i
 
 #### Project Structure
 1. packages/bsc
@@ -15,18 +13,21 @@
 - web; web for lock LST token to mint game token this game token can trafer to Solana and Sui
 
 2. packages/sol
-- anchor; on-chain Programs
+- anchor; on-chain programs
 - web; on-chain game web based
 2.1 How to run sol project
 - pnpm build:anchor
 - pnpm build:websol
 
 3. packages/sui
-- anchor; on-chain Programs
-- web; on-chain game web based
+- move; Sui smart contracts
+- web; on-chain game web based (not finished)
+3.1 HOw to build sui project
+- pnpm build:move
 
 4. packages/ccq
 - wormhole ccq to query leader from Solana and Sui
+4.1 pnpm run:ccq
 
 #### Key Features
 1. NTT to supported multi-chain in-game token

@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "build:websol": "cd packages/sol/web && pnpm build",
-    "build:anchor": "cd packages/sol/anchor && anchor build"
+    "build:anchor": "cd packages/sol/anchor && anchor build",
+    "build:move": "cd packages/sui/move && sui move build",
+    "run:ccq": "cd packages/ccq && pnpm dev"
   },
   "devDependencies": {
     "@swc/core": "^1.3.41",
