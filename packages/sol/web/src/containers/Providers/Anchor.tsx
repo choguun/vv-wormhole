@@ -3,7 +3,7 @@ import { AnchorProvider, Idl, Program, setProvider, web3, BN } from '@coral-xyz/
 import * as anchor from '@coral-xyz/anchor';
 import { useConnection, useAnchorWallet } from '@solana/wallet-adapter-react';
 import { PublicKey, SystemProgram } from "@solana/web3.js";
-import idl from 'onchain/target/idl/game_state_program.json'; // Adjust path to your IDL file
+import idl from 'anchor/target/idl/gamelogic.json'; // Adjust path to your IDL file
 import toast from 'react-hot-toast';
 // import { TOKEN_PROGRAM_ID, getOrCreateAssociatedTokenAccount } from '@solana/spl-token';
 import { SPL_PUBLIC_KEY } from '../../env';

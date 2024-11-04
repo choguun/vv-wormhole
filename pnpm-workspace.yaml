@@ -1,0 +1,7 @@
+packages:
+  - 'packages/bsc/contracts'
+  - 'packages/bsc/web'
+  - 'packages/sol/web'
+  - 'packages/sol/anchor'
+  - 'packages/sui/web'
+  - 'packages/sui/move'

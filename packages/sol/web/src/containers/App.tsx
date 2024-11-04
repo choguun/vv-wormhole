@@ -19,7 +19,6 @@ import { AnchorProviderContext } from './Providers/Anchor'; // Import the Anchor
  
 // Default styles that can be overridden by your app
 import "@solana/wallet-adapter-react-ui/styles.css"; // Replace require with import
-import { World } from "./World";
 
 const router = createBrowserRouter([
   {
@@ -35,14 +34,6 @@ const router = createBrowserRouter([
     element: (
       <>
         <Lobby />
-      </>
-    ),
-  },
-  {
-    path: "/world",
-    element: (
-      <>
-        <World />
       </>
     ),
   },

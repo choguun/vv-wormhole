@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "web",
   "version": "0.9.0",
   "private": true,
   "license": "MIT",
@@ -35,10 +35,7 @@
     "@solana/wallet-adapter-wallets": "^0.19.32",
     "@solana/web3.js": "^1.95.3",
     "@tanstack/react-query": "^5.54.1",
-    "@vv-libs/aabb": "workspace:*",
-    "@vv-libs/core": "workspace:*",
-    "@vv-libs/physics-engine": "workspace:*",
-    "@vv-libs/transport": "workspace:*",
+    "anchor": "workspace:*",
     "axios": "^1.7.7",
     "classnames": "^2.5.1",
     "color": "^4.2.3",
@@ -49,7 +46,6 @@
     "luxon": "^3.5.0",
     "mobx": "^6.13.1",
     "noisejs": "^2.1.0",
-    "anchor": "workspace:*",
     "postprocessing": "^6.36.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -60,7 +56,6 @@
     "rxjs": "7.5.5",
     "styled-components": "^6.1.13",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7",
     "three": "^0.165.0",
     "three-nebula": "^10.0.3",
     "ua-parser-js": "^1.0.38",
@@ -85,6 +80,7 @@
     "rimraf": "^3.0.2",
     "sass": "^1.78.0",
     "tailwindcss": "^3.4.10",
+    "tailwindcss-animate": "^1.0.7",
     "vite": "^4.2.1",
     "wait-port": "^1.0.4"
   }
